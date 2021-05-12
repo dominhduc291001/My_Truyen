@@ -24,6 +24,7 @@
     <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />
     <option name="TEMPLATE_FOLDERS">
       <list>
+        <option value="$MODULE_DIR$/Controler/templates" />
         <option value="$MODULE_DIR$/templates" />
       </list>
     </option>
