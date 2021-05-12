@@ -6,6 +6,8 @@
   ``` pip3 install mysqlclient```
 ### 3 . load virtualenv 
   ``` pip install -r requirements.txt```
-### 4. run django project
+### 4 . load migation
+  ``` python manage.py migrate```   
+### 5. run django project
   ``` python manage.py runserver```
 - `Note: Chỉnh sửa thông tin database trong file setting`
