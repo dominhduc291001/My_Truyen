@@ -11,5 +11,10 @@
 </head>
 <body>
     <p class = "hello">Hello Word!</p>
+
+     <br />
+    <span>Hello, {{request.user}}</span>
+    <span><a href="{% url 'logout' %}">Logout</a></span>
+
 </body>
 </html>
