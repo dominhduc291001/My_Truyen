@@ -1,6 +1,158 @@
 {% extends 'Base/index.html' %}
 {% load static %}
 {% block content %}
-<span>Hello, {{ request.user }}</span>
-<span><a href="{% url 'logout' %}">Logout</a></span>
+    {% load static %}
+    <div class="container">
+        {# star carousel#}
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active " data-bs-interval="3000">
+                    <img src="{% static '/showimage/carosel1.png' %}" class="d-block w-100 h-100  image-carousel img-thumbnail img-fluid" >
+                </div>
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="{% static '/showimage/carosel2.png' %}" class="d-block w-100 h-100  image-carousel img-thumbnail img-fluid" >
+                </div>
+                <div class="carousel-item"data-bs-interval="4000">
+                    <img src="{% static '/showimage/carosel4.png' %}" class="d-block w-100 h-100  image-carousel img-thumbnail img-fluid" >
+                </div>
+            </div>
+        </div>
+        {# end carousel #}
+        <div class="genresbar">
+            <ul class="nav justify-content-center">
+                <span class="space-example"></span>
+                <li class="nav-item">
+                    <a class="nav-link line-right"  href="#">Truyện teen</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link line-right" href="#">Kiếm hiệp</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link line-right" href="#">Tiên hiệp</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link line-right" href="#">Ngôn tình</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link line-right" href="#">Xuyên không</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link line-right" href="#">Đô thị</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link line-right" href="#">Kinh dị</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link line-right" href="#">Truyện ngắn</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link line-right" href="#">Tiểu thuyết</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link line-right" href="#">Dị giới</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link null-right" href="#">Trinh thám</a>
+                </li>
+            </ul>
+        </div>
+        <div class = "portlet">
+            <div class = "row">
+                <div class = "col-md-9 my-list">
+                   <div class="d-flex" style="height: 40px">
+                        <p class="p-2" style="font-size: larger"> <i class="fas fa-award" style="margin-right: 5px"></i>Truyện đề cử</p>
+                       <span class="example-spacer"></span>
+                       <a class="nav-link right-label" href="#">Xem tất cả <i class="fas fa-chevron-circle-right"></i></a>
+                   </div>
+                    <hr>
+                    <div class="view-list">
+                        {% for item in listTruyen %}
+                             <div class="mycard text-center">
+                            <a href="/truyen/{{ item.IDtruyen }}">
+                                <img class=" zoom img-thumbnail " style="height: 200px" src="{% static item.anh %}">
+                            </a>
+                            <a href="/truyen/{{ item.IDtruyen }}" class = "mylink" ><p class="my-context">{{ item.tentruyen }}</p></a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class = "col-md-3 top-view">
+                    <div class="d-flex" style="height: 40px">
+                        <p class="p-2 " style="font-size: larger"> <i class="fas fa-flag" style="margin-right: 5px;color: #fca400"></i>Truyện có lượt xem nhiều</p>
+                   </div>
+                    <hr>
+                    <div id="mytop" style="padding-left: 15px;padding-right: 15px;">
+                        {% for item in topView %}
+                            <a id = "topitem" class="tag-top nav-link">{{item.tentruyen }}</a>
+                        {% endfor %}
+                        <script>
+                            let res = jQuery.makeArray($("#mytop").find("a"));
+                            let index = 1;
+                            for(let item of res){
+                                let temptr = '<span class="badge badge-secondary">' + index + '</span>';
+                                index += 1;
+                                $(item).prepend(temptr);
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "portlet new">
+            <div class = "row">
+                <div class = "col-md-12 my-list">
+                   <div class="d-flex" style="height: 40px">
+                        <p class="p-2" style="font-size: larger;color: chocolate"> <i class="fas fa-bolt" style="margin-right: 5px"></i>Truyện mới cập nhập</p>
+                       <span class="example-spacer"></span>
+                       <a class="nav-link right-label" href="#">Xem tất cả <i class="fas fa-chevron-circle-right"></i></a>
+                   </div>
+                    <hr>
+                    <div class="view-list">
+                         {% for item in newView %}
+                             <div class="mycard text-center">
+                            <a href="/truyen/{{ item.IDtruyen }}">
+                                <img class=" zoom img-thumbnail " style="height: 200px" src="{% static item.anh %}">
+                            </a>
+                            <a href="/truyen/{{ item.IDtruyen }}" class = "mylink" ><p class="my-context">{{ item.tentruyen }}</p></a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "portlet like">
+                <div class = "row">
+                    <div class = "col-md-9 my-list">
+                       <div class="d-flex" style="height: 40px">
+                            <p class="p-2" style="font-size: larger;color: tomato"> <i class="fas fa-heart" style="margin-right: 5px"></i>Truyện có nhiều lượt yêu thích</p>
+                           <span class="example-spacer"></span>
+                           <a class="nav-link right-label" href="#">Xem tất cả <i class="fas fa-chevron-circle-right"></i></a>
+                       </div>
+                        <hr>
+                        <div class="view-list">
+                           {% for item in loveView %}
+                             <div class="mycard text-center">
+                            <a href="/truyen/{{ item.IDtruyen }}">
+                                <img class=" zoom img-thumbnail " style="height: 200px" src="{% static item.anh %}">
+                            </a>
+                            <a href="/truyen/{{ item.IDtruyen }}" class = "mylink" ><p class="my-context">{{ item.tentruyen }}</p></a>
+                        </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                    <div class = "col-md-3 top-view">
+                        <div class="d-flex" style="height: 40px">
+                            <p class="p-2 " style="font-size: larger"> <i class="fas fa-upload" style="margin-right: 5px;color: #fca400"></i>Chương mới cập nhập</p>
+                       </div>
+                        <hr>
+                        <div style="padding-left: 15px;padding-right: 15px;">
+                            {% for item in newChap %}
+                                <a href="#" class="tag-top nav-link ">{{ item.IDtruyen }} : Chap {{ item.chap}} - {{ item.tenchap }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <br>
 {% endblock content %}

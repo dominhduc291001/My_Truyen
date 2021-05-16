@@ -1,8 +1,9 @@
 .user_card {
-    width: 350px;
+    width: 550px;
+    height: 440px;
     margin-top: auto;
     margin-bottom: auto;
-    background: #74cfbf;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
     position: relative;
     display: flex;
     justify-content: center;
@@ -12,7 +13,6 @@
     -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
-
 }
 
 .form_container {
@@ -20,14 +20,17 @@
 }
 
 #form-title {
-    color: #fff;
+    color: white;
 
 }
 
 .login_btn {
-    width: 100%;
-    background: #33ccff !important;
+    background: #fca400 !important;
     color: white !important;
+}
+.login_btn:hover{
+    background: #234871 !important;
+    color:#fca400 !important ;
 }
 
 .login_btn:focus {
@@ -40,10 +43,11 @@
 }
 
 .input-group-text {
-    background: #f7ba5b !important;
+    background-color: darkgray !important;
     color: white !important;
     border: 0 !important;
     border-radius: 0.25rem 0 0 0.25rem !important;
+    height: 100%;
 }
 
 .input_user,
@@ -53,8 +57,28 @@
 }
 
 #messages {
-    background-color: grey;
-    color: #fff;
+    color: white;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
+    text-align: center;
+}
+.login-box{
+    height: 90vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),url('/static/showimage/backround-my.jpg');
+    background-size: cover;
+    position: relative;
+    background-position: center center;
+}
+.ml-2{
+    margin-left: 10px;
+    text-decoration: none;
+    color: white;
+}
+.ml-2:hover{
+    color: darkorange;
+}
+.errorlist{
+    color: red;
+    margin-left: 50px;
 }

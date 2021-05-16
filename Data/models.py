@@ -8,6 +8,7 @@ class Truyen(models.Model):
     nguon = models.CharField(max_length = 100)
     trangthai = models.BooleanField(default = False)
     yeuthich = models.IntegerField(default = 0)
+    luotxem = models.IntegerField(default=0)
     gioithieu = models.CharField(max_length = 5000 )
     anh = models.ImageField(upload_to='images/')
 
@@ -20,10 +21,10 @@ class Chaptruyen(models.Model):
     chap = models.IntegerField(default=0)
     tenchap = models.CharField(max_length=100)
     noidung = RichTextField(blank = True, null= True)
+    #thoigian = models.DateTimeField(auto_now= True)
 
 class Checktheloai(models.Model):
     IDtheloai = models.ForeignKey(Theloai, on_delete=models.CASCADE)
     IDtruyen = models.ForeignKey(Truyen, on_delete=models.CASCADE)
-
 
 

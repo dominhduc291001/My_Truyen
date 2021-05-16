@@ -1,0 +1,111 @@
+a{
+    text-decoration: none !important;
+}
+.image-carousel{
+    height: 400px !important;
+}
+.carousel-inner{
+    position: relative;
+    margin-top: 2%;
+    padding-left: 5%;
+    padding-right:5%;
+}
+.genresbar{
+    margin-top: 15px;
+}
+.nav{
+    margin-top: 4px;
+    padding-left: 5px;
+    border: 1px solid #DDDDDD;
+    box-sizing: border-box;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    background-color: #f8f9fa;
+}
+.line-right{
+    margin-top: 7px;
+    border-right: 1px solid #DDDDDD;
+    line-height: 3px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #234871 !important;
+}
+.null-right{
+    margin-top: 7px;
+    line-height: 3px;
+    margin-right: 5px;
+    color: #234871 !important;
+}
+.portlet{
+    width: 100%;
+    margin-top: 20px;
+}
+.my-list{
+    border: 1px solid #DDDDDD;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.top-view{
+    border-bottom: 1px solid #DDDDDD;
+    border-top: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.right-label{
+    color: #234871 !important;
+    margin-top: 5px;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+.img-top image{
+    background-size: cover;
+}
+.mycard{
+    width: 150px !important;
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.mylink{
+    color: black !important;
+    font-size: small !important;
+    height: 30px;
+}
+.mylink:hover{
+    color: #64d075 !important;
+}
+.view-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.my-context{
+    height: 30px;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.tag-top{
+    line-height: 1.5;
+     text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.badge-secondary{
+    background-color: cadetblue !important;
+    margin-right: 3px;
+}
+.zoom {
+  padding: 50px;
+  background-color: green;
+  transition: transform .2s; /* Animation */
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.06); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}

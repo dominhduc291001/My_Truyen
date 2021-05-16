@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
-from Data.forms import CreateUserForm
+from Data.formResgister import CreateUserForm
 
 def registerPage(request):
     if request.user.is_authenticated:
@@ -16,7 +16,7 @@ def registerPage(request):
             form = CreateUserForm(request.POST)
             if form.is_valid():
                 form.save()
-                messages.success(request, 'Account Created')
+                messages.success(request, 'Tạo tài khoản thành công')
                 return redirect('login')
 
         context = {'form' : form}
@@ -37,7 +37,7 @@ def loginPage(request):
     #Redirect to homepage using homepage's name
                 return redirect('Home Page')
             else:
-                messages.info(request, 'Username or Password is incorrect')
+                messages.info(request, 'Tên tài khoản mật khẩu không đúng !!!')
         context = {}
         return render(request, 'Auth/loginPage.html', context)
 
