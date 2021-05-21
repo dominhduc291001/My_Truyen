@@ -1,0 +1,24 @@
+{% extends 'Base/index.html' %}
+{% load static %}
+{% block content %}
+
+{% if user.is_authenticated %}
+    {% if user.id == profile.user.id%}
+<h1>Edit Profile Page</h1>
+<br/>
+<div class="d-flex justify-content-center form_container">
+<div class="form-group">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">Update Profile Page</button>
+</div>
+</div>
+    {% else %}
+    You are not the correct User To Edit Page...
+    {% endif %}
+{% else %}
+    Ban khong duoc phep o day !...
+{% endif %}
+
+{% endblock content %}
