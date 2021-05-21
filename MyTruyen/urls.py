@@ -18,10 +18,14 @@ from django.urls import path
 
 import Controler.AuthView
 from Controler.HomeView import home
+from Controler.SelectTruyen import SelectTruyen
+from Controler.ChapView import ChapView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home, name='Home Page'),
     path('register/', Controler.AuthView.registerPage, name='register'),
     path('logout/', Controler.AuthView.logoutUser, name='logout'),
     path('login/', Controler.AuthView.loginPage, name='login'),
+    path('SelectTruyen/<str:id>/',SelectTruyen,name='SelectTruyen'),
+    path('chap/<str:idTruyen>/<int:id>/',ChapView,name='ChapView'),
 ]

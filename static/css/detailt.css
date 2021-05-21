@@ -1,0 +1,103 @@
+.box {
+    box-sizing: border-box;
+    border: 10px solid transparent;
+    background-clip:padding-box;
+    background-color: #f6f6f6;
+    height: auto;
+}
+.clear-fix{
+    width: 100%;
+}
+.img-story{
+    width: 100px;
+    height: 120px !important;
+    background-size: cover;
+    transition: transform .2s;
+}
+.img-story:hover{
+    transform: scale(1.06);
+}
+.clear-fix{
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    box-sizing: border-box;
+}
+.box-title{
+    position: relative;
+    width: 70% !important;
+}
+.title-main{
+    position: relative;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.my-link{
+    color: crimson;
+}
+.my-link:hover{
+    color: #64d075;
+}
+.story-list{
+    padding-left: 5px;
+    padding-right: 5px;
+    line-height: 1.1;
+}
+.context-main{
+    padding-left: 10px;
+}
+.box-title{
+    padding-left: 25px;
+    padding-right: 10px;
+}
+.my-story{
+    width: 200px;
+    height: 250px !important;
+    background-size: cover;
+    transition: transform .2s;
+}
+.my-story:hover{
+    transform: scale(1.06);
+}
+.info-book{
+    padding-top: 20px;
+}
+.box-main{
+    width: 75%;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.subcrite-btn{
+    margin-left: 20px;
+}
+.context-book{
+    color: darkgray;
+}
+.book-color{
+    color: #fca400;
+}
+.book-bold{
+    font-weight:bold;
+    color: black;
+}
+.my-bt{
+    background-color: #ff5900 !important;
+    color: #f8f9fa !important;
+}
+.my-bt:hover{
+    background-color: #234871 !important;
+    color: #ff5900 !important;
+}
+.chap{
+    white-space: pre-line;
+    font-size:medium;
+    line-height: 1.8;
+}
+.chapList{
+    width: 100%;
+    background-color: #f6f6f6;
+    padding: 20px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,51 @@
+.box-book{
+    background-image: url("/static/showimage/church.png");
+    background-size: 100px;
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #262626;
+    border: 6px solid #b0aca7;
+    padding: 60px 64px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.name-book{
+    text-align: center;
+    font-size: x-large;
+}
+.name-chap{
+    font-size: x-large;
+}
+.cl-dark{
+    color: #686868;
+}
+.reading-book{
+    height: auto;
+    line-height: 1.8;
+}
+#setting{
+  background-color: rgba(0,0,0,0.3);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 48px;
+  width: 48px;
+  z-index: 99;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+}
+#setting:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+#reading-book{
+    font-size: 18px;
+    line-height: 1.4;
+}
+.my-drop{
+    width: 300px;
+}

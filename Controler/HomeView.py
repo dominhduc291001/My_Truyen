@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from Data.models import Truyen
-from Data.models import Theloai
 from Data.models import Chaptruyen
 
 
@@ -16,6 +15,7 @@ def home(request):
 
 def getNewView():
     mylist = Truyen.objects.all()
+    mylist = reversed(mylist)
     res = []
     index = 0
     for i in mylist:
@@ -26,7 +26,6 @@ def getNewView():
 
 def getTopview():
     mylist = Truyen.objects.all()
-    # get topView list
     tempList = sorted(mylist, key=lambda x: x.luotxem, reverse=True)
     topView = []
     index = 0;
@@ -59,6 +58,7 @@ def getLoveView():
     return res
 def getNewChap():
     mylist = Chaptruyen.objects.all()
+    mylist = sorted(mylist, key=lambda x: x.thoigian, reverse=True)
     res = []
     index = 0
     for i in mylist:

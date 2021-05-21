@@ -1,7 +1,6 @@
 {% extends 'Base/index.html' %}
 {% load static %}
 {% block content %}
-    {% load static %}
     <div class="container">
         {# star carousel#}
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
@@ -65,13 +64,13 @@
                        <a class="nav-link right-label" href="#">Xem tất cả <i class="fas fa-chevron-circle-right"></i></a>
                    </div>
                     <hr>
-                    <div class="view-list">
+                    <div class="view-list" style="margin-left: 6%">
                         {% for item in listTruyen %}
                              <div class="mycard text-center">
-                            <a href="/truyen/{{ item.IDtruyen }}">
-                                <img class=" zoom img-thumbnail " style="height: 200px" src="{% static item.anh %}">
+                            <a href="/SelectTruyen/{{ item.IDtruyen }}">
+                                <img class="img-thumbnail zoom " style="height: 200px" src="{% static item.anh %}">
                             </a>
-                            <a href="/truyen/{{ item.IDtruyen }}" class = "mylink" ><p class="my-context">{{ item.tentruyen }}</p></a>
+                            <a href="/SelectTruyen/{{ item.IDtruyen }}" class = "mylink" ><p class="my-context">{{ item.tentruyen }}</p></a>
                         </div>
                         {% endfor %}
                     </div>
@@ -83,7 +82,7 @@
                     <hr>
                     <div id="mytop" style="padding-left: 15px;padding-right: 15px;">
                         {% for item in topView %}
-                            <a id = "topitem" class="tag-top nav-link">{{item.tentruyen }}</a>
+                            <a href="/SelectTruyen/{{ item.IDtruyen }}" id = "topitem" class="tag-top nav-link">{{item.tentruyen }}</a>
                         {% endfor %}
                         <script>
                             let res = jQuery.makeArray($("#mytop").find("a"));
@@ -107,13 +106,13 @@
                        <a class="nav-link right-label" href="#">Xem tất cả <i class="fas fa-chevron-circle-right"></i></a>
                    </div>
                     <hr>
-                    <div class="view-list">
+                    <div class="view-list" style="margin-left: 4%">
                          {% for item in newView %}
                              <div class="mycard text-center">
-                            <a href="/truyen/{{ item.IDtruyen }}">
+                            <a href="/SelectTruyen/{{ item.IDtruyen }}">
                                 <img class=" zoom img-thumbnail " style="height: 200px" src="{% static item.anh %}">
                             </a>
-                            <a href="/truyen/{{ item.IDtruyen }}" class = "mylink" ><p class="my-context">{{ item.tentruyen }}</p></a>
+                            <a href="/SelectTruyen/{{ item.IDtruyen }}" class = "mylink" ><p class="my-context">{{ item.tentruyen }}</p></a>
                         </div>
                         {% endfor %}
                     </div>
@@ -129,13 +128,13 @@
                            <a class="nav-link right-label" href="#">Xem tất cả <i class="fas fa-chevron-circle-right"></i></a>
                        </div>
                         <hr>
-                        <div class="view-list">
+                        <div class="view-list" style="margin-left: 6%">
                            {% for item in loveView %}
                              <div class="mycard text-center">
-                            <a href="/truyen/{{ item.IDtruyen }}">
+                            <a href="/SelectTruyen/{{ item.IDtruyen }}">
                                 <img class=" zoom img-thumbnail " style="height: 200px" src="{% static item.anh %}">
                             </a>
-                            <a href="/truyen/{{ item.IDtruyen }}" class = "mylink" ><p class="my-context">{{ item.tentruyen }}</p></a>
+                            <a href="/SelectTruyen/{{ item.IDtruyen }}" class = "mylink" ><p class="my-context">{{ item.tentruyen }}</p></a>
                         </div>
                         {% endfor %}
                         </div>
@@ -147,7 +146,7 @@
                         <hr>
                         <div style="padding-left: 15px;padding-right: 15px;">
                             {% for item in newChap %}
-                                <a href="#" class="tag-top nav-link ">{{ item.IDtruyen }} : Chap {{ item.chap}} - {{ item.tenchap }}</a>
+                                <a href="/chap/{{ item.IDtruyen.pk }}/{{ item.id }}" class="tag-top nav-link ">{{ item.IDtruyen.pk }} : Chap {{ item.chap}} - {{ item.tenchap }}</a>
                             {% endfor %}
                         </div>
                     </div>

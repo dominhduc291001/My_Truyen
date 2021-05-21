@@ -1,0 +1,130 @@
+{% extends 'Base/index.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="main-detail">
+            <div class="row">
+                <div class="col-md-8 top-view box">
+                    <div class="d-flex clear-fix bg-white  mb-1">
+                        <p class="p-2" style="font-size: larger;color: tomato"><i class="fas fa-book-reader" style="margin-right: 5px"></i>{{ myTruyen.tentruyen }}</p>
+                    </div>
+                    <div class="clear-fix shadow-sm p-4 mb-2 bg-white rounded">
+                        <div class="d-flex">
+                            <a>
+                                <img class=" my-story rounded img-thumbnail " style="height: 200px"
+                                     src="{% static  myTruyen.anh  %}">
+                            </a>
+                            <div class="box-main">
+                                <div class="d-flex group-button">
+                                    <button class="btn btn-danger"><i class="fas fa-heart"
+                                                                      style="margin-right: 5px"></i>Yêu thích
+                                    </button>
+                                    <button class="btn btn-success subcrite-btn">Theo dõi</button>
+                                </div>
+                                <div class="info-book">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p class="context-book">Tác giả: <span class="book-bold">{{ myTruyen.tacgia }}</span></p>
+                                            <p class="context-book">Thể loại: <span class="book-color">
+                                                {{ theLoai }}
+                                            </span>
+                                            </p>
+                                            <p class="context-book">Nguồn: <span class="book-color">{{ myTruyen.nguon }}</span></p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="context-book">Lượt xem: <span class="book-bold">{{ myTruyen.luotxem }}</span></p>
+                                            <p class="context-book">Lượt yêu thích: <span class="book-bold">{{ myTruyen.yeuthich }}</span>
+                                            </p>
+                                            <p class="context-book">Số chương: <span class="book-bold">{{ numberChap }}</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="btn my-bt " role="button" href="/chap/{{ myTruyen.IDtruyen }}/{{ firstChap }}">Đọc từ đầu</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear-fix shadow-sm p-4 mb-2 bg-white rounded">
+                        <div class="row">
+                            <div class="col-md-6 p-2">
+                                <div class="book-content clear-fix p-3">
+                                    <p style="text-align: center"><b>Nội dung truyện</b></p>
+                                    <p class="chap">{{ myTruyen.gioithieu }}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 p-2">
+                                <div class="book-content clear-fix p-3">
+
+                                    <div class="table-responsive-md">
+                                        <table class="table table-striped">
+                                        <tbody>
+                                           {% for item in newChap %}
+                                               <tr>
+                                                <td><a href="/chap/{{ myTruyen.IDtruyen }}/{{ item.id }}" class="my-link link-title">Chương {{ item.chap }}:</a></td>
+                                                <td><a href="/chap/{{ myTruyen.IDtruyen }}/{{ item.id }}" class="my-link link-content">{{ item.tenchap }}</a></td>
+                                            </tr>
+                                           {% endfor %}
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 my-list box">
+                    <div class="d-flex" style="height: 40px">
+                        <p class="p-2" style="font-size: larger;color: cadetblue"><i class="fas fa-folder"
+                                                                                     style="margin-right: 5px"></i>Truyện
+                            cùng thể loại</p>
+                    </div>
+                    <hr>
+                    <div class="story-list">
+                        {% for item in sameType %}
+                             <div class="clear-fix shadow-sm p-3 mb-2 bg-white rounded">
+                            <div class="d-flex">
+                                <a href="/SelectTruyen/{{ item.IDtruyen }}">
+                                    <img class=" img-story rounded " style="height: 200px"
+                                         src="{% static item.anh %}">
+                                </a>
+                                <div class="box-title">
+                                    <p class="title-main"><a class="my-link" href="/SelectTruyen/{{ item.IDtruyen }}"><b>{{ item.tentruyen }}</b></a>
+                                    </p>
+                                    <p class="context-main">Tác giả: {{ item.tacgia }}</p>
+                                    <p class="context-main">Lượt xem: {{ item.luotxem }}</p>
+                                    <p class="context-main">Lượt yêu thích: {{ item.yeuthich }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chapList">
+            <div class="clear-fix shadow-sm p-4 mb-2 bg-white rounded">
+                <p style="text-align: center"><b><i class="fas fa-th-list" style="margin-right: 5px"></i>Danh sách chương</b></p>
+                <div class="table-responsive-md p-4 ml-2 mr-2">
+                    <table class="table ">
+                        <thead >
+                        <tr>
+                            <th scope="col">Chương</th>
+                            <th scope="col">Tên chương</th>
+                            <th scope="col">Ngày đăng</th>
+                        </tr>
+                        </thead>
+                        <tbody>s
+                        {% for item in allChap %}
+                            <tr>
+                            <td><a href="/chap/{{ myTruyen.IDtruyen }}/{{ item.id }}" class="my-link link-title">Chương {{ item.chap }}:</a></td>
+                            <td><a href="/chap/{{ myTruyen.IDtruyen }}/{{ item.id }}" class="my-link link-content">{{ item.tenchap }}</a></td>
+                            <td><p> <i class="fas fa-clock" style="margin-right: 5px"></i>{{ item.thoigian | date:'d-F-Y' }}</p></td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
