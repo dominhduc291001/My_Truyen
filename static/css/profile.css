@@ -1,0 +1,49 @@
+.myProfile{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-right: 40px;
+}
+.avatar-img{
+    width: 200px !important;
+    height: 220px !important;
+    position: absolute;
+    margin-top: -8%;
+    z-index: 1;
+    margin-left: -8%;
+}
+
+.profile-content{
+    position: relative;
+}
+.profile-card{
+    padding-left: 50px;
+    padding-right: 50px;
+    position: absolute;
+}
+.space-avatar{
+    height: 100px;
+}
+.space-text{
+    height: 130px;
+}
+.profile-name{
+    text-align: center;
+    font-size: xx-large;
+}
+.profile-item{
+    color: #036ea5;
+    background-color: white;
+    margin-right: 8px;
+}
+.profile-link{
+    margin-top: 5px;
+}
+.myInfo{
+    margin-top: 30px;
+    line-height: 1.4;
+    white-space: pre-line; font-size:medium;
+}
+.change-profile{
+    margin-left: 5px;
+    font-size: larger !important;
+}

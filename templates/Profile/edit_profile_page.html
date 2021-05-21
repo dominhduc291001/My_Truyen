@@ -2,23 +2,70 @@
 {% load static %}
 {% block content %}
 
-{% if user.is_authenticated %}
-    {% if user.id == profile.user.id%}
-<h1>Edit Profile Page</h1>
-<br/>
-<div class="d-flex justify-content-center form_container">
-<div class="form-group">
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-secondary">Update Profile Page</button>
-</div>
-</div>
-    {% else %}
-    You are not the correct User To Edit Page...
-    {% endif %}
-{% else %}
-    Ban khong duoc phep o day !...
-{% endif %}
+    {% if user.is_authenticated %}
+        {% if user.id == profile.user.id %}
+            <div class="login-box">
+                <div class="d-flex justify-content-center h-100">
+                    <div class="user_card" style="width: 600px;height: 760px">
+                        <div class="d-flex justify-content-center">
+                            <h3 id="form-title">CHỈNH SỬA TRANG CÁ NHÂN</h3>
+                        </div>
+                        <div class="d-flex justify-content-center form_container">
+                            <form style="color:white" method="POST" action="" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div style="margin-left: 80px">
+                                    <div class="input-group mb-2">
+                                        <p class="title-label" style="margin-right: 5px">Facebook : </p>
+                                        <div class="input-group-append">
+                                            {{ form.facebook_url }}
+                                        </div>
+                                    </div>
+                                    <div class="input-group mb-2">
+                                        <p class="title-label" style="margin-right: 5px">Twitter : </p>
+                                        <div class="input-group-append">
+                                            {{ form.twitter_url }}
+                                        </div>
+                                    </div>
+                                    <div class="input-group mb-2">
+                                        <p class="title-label" style="margin-right: 5px">Instagram : </p>
+                                        <div class="input-group-append">
+                                            {{ form.instagram_url }}
+                                        </div>
+                                    </div>
+                                    <div class="input-group mb-2">
+                                        <p class="title-label" style="margin-right: 5px">Website : </p>
+                                        <div class="input-group-append">
+                                            {{ form.website_url }}
+                                        </div>
+                                    </div>
+                                    <div class="input-group mb-2" style="display: block">
+                                        <p class="title-label" style="margin-right: 5px">Giới thiệu : </p>
+                                        <div class="input-group-append">
+                                            {{ form.bio }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-2">
+                                    <p class="title-label" style="margin-right: 5px;color: antiquewhite">Ảnh hiển thị
+                                        : </p>
+                                    <div class="input-group-append">
+                                        {{ form.profile_pic }}
+                                    </div>
+                                </div>
 
-{% endblock content %}
+                                <div class="d-flex justify-content-center mt-3 login_container">
+                                    <input class="btn login_btn" type="submit" value="Lưu thông tin">
+                                </div>
+                            </form>
+                        </div>
+                        {{ form.errors }}
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            You are not the correct User To Edit Page...
+        {% endif %}
+    {% else %}
+        <p>Ban khong duoc phep o day !...</p>
+    {% endif %}
+{% endblock %}

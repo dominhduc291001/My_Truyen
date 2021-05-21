@@ -5,7 +5,7 @@ from django.views.generic import ListView, DetailView
 from django.views import generic
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
-#from .forms import EditProfileForm, PasswordChangingForm
+from Data.Form.profileForm import *
 from django.contrib.auth.views import PasswordChangeView
 
 
@@ -23,8 +23,6 @@ class ShowProfilePageView(DetailView):
     def get_context_data(self, *args, **kwargs):
         users = Profile.objects.all()
         context = super(ShowProfilePageView, self).get_context_data(*args, **kwargs)
-
         page_user = get_object_or_404(Profile, id=self.kwargs['pk'])
-
         context["page_user"] = page_user
         return context
