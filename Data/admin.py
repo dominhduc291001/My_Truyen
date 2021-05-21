@@ -1,6 +1,34 @@
 from django.contrib import admin
+from django.contrib.admin import ModelAdmin
 from .models import *
 # Register your models here.
 
-myModels = [Truyen,Theloai, Checktheloai,Chaptruyen,Theodoi]
-admin.site.register(myModels)
+#myModels = [Truyen,Theloai, Checktheloai,Chaptruyen]
+class TruyenAdmin (ModelAdmin):
+
+    ordeing=['IDtruyen']
+    list_display=['IDtruyen','tentruyen','luotxem','trangthai','tacgia','nguon']
+    list_per_page=10
+    list_display_links=['IDtruyen','tentruyen']
+    list_editable=['trangthai']
+    search_fields = ('IDtruyen','tentruyen','tacgia',)
+
+class TheLoaiAdmin (ModelAdmin) :
+    ordeing = ['IDtheloai']
+    list_display =['IDtheloai','tentheloai']
+    list_per_page = 10
+    search_fields=('IDtheloai','tentheloai')
+
+class ChapTruyenAdmin (ModelAdmin) :
+    ordeing=['IDtruyen']
+    list_display=['IDtruyen','chap','tenchap']
+    search_fields = ('IDtruyen','chap')
+    list_filter=['IDtruyen']
+class CheckTheLoaiAdmin (ModelAdmin) :
+    ordeing = ['IDtheloai']
+    list_editable=['IDtruyen']
+    list_display=['IDtheloai','IDtruyen']
+admin.site.register(Theloai,TheLoaiAdmin)
+admin.site.register(Checktheloai,CheckTheLoaiAdmin)
+admin.site.register(Chaptruyen,ChapTruyenAdmin)
+admin.site.register(Truyen,TruyenAdmin)

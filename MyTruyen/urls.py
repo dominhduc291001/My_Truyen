@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from django.conf.urls.static import  static
+from django.conf import settings
 import Controler.AuthView
 from Controler.HomeView import home
 from Controler.SelectTruyen import SelectTruyen
@@ -28,4 +29,4 @@ urlpatterns = [
     path('login/', Controler.AuthView.loginPage, name='login'),
     path('SelectTruyen/<str:id>/',SelectTruyen,name='SelectTruyen'),
     path('chap/<str:idTruyen>/<int:id>/',ChapView,name='ChapView'),
-]
+]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
