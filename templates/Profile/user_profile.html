@@ -1,50 +1,40 @@
 {% extends 'Base/index.html' %}
 {% load static %}
 {% block content %}
-<h1>User Profile</h1>
-
-{{ page_user }}
-
-<div class="card mb-3" >
-  <div class="row g-0">
-    <div class="col-md-2">
-      {% if page_user.profile_pic %}
-            <img src="{{ page_user.profile_pic.url }}" width=200 height=200 class="rounded-circle">
-        {% else %}
-           <img src="{% static 'images/default_profile_pic.png' %}" width=200 height=200 class="rounded-circle">
-        {% endif %}
+    <div class="container">
+        <div class="myProfile p-4 border border-secondary bg-light ">
+            <div class="card mb-3 profile-card">
+                <div class="row g-0 p-4">
+                    <div class="space-avatar"></div>
+                    <div class="avatar text-center">
+                        {% if page_user.profile_pic %}
+                            <img src="{{ page_user.profile_pic.url }}" class="rounded-circle avatar-img img-fluid" alt="Responsive image">
+                        {% else %}
+                            <img src="{% static 'images/default_profile_pic.png' %}"
+                                 class="rounded-circle avatar-img img-fluid" alt="Responsive image">
+                        {% endif %}
+                    </div>
+                    <div class="profile-content mb-3 p-4 border ">
+                        <div class="space-text">
+                        </div>
+                        <div class="text-center" > <b class="profile-name">{{ page_user }}</b>
+                            {% ifequal page_user|stringformat:"s" user.username %}
+                            <a href="{% url 'edit_profile_page' user.profile.id %}" class="change-profile"><i class="fas fa-edit fa-10px"></i></a>
+                            {% endifequal %}
+                        </div>
+                        <div class="profile-link text-center">
+                            <a class="profile-item" href="{{ page_user.website_url }}"><i class="fas fa-globe-americas fa-2x" ></i></a>
+                           <a class="profile-item" href="{{ page_user.facebook_url }}"><i class="fab fa-facebook fa-2x" ></i></a>
+                            <a class="profile-item" href="{{ page_user.twitter_url }}"><i class="fab fa-twitter-square fa-2x" ></i></a>
+                            <a class="profile-item" href="{{ page_user.instagram_url }}"><i class="fab fa-instagram-square fa-2x" ></i></a>
+                        </div>
+                        <div class="bg-light mb-3 p-4 border myInfo">
+                            {{ page_user.bio }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-10">
-      <div class="card-body">
-        <h5 class="card-title">
-            {{ page_user.user.first_name }}
-            {{ page_user.user.last_name }}
-        </h5>
-          <p class="small text-muted">
-            {% if page_user.website_url %}
-              <a href="{{ page_user.website_url }}">| Website</a> |
-              {% endif %}
-
-              {% if page_user.facebook_url %}
-              <a href="{{ page_user.facebook_url }}">Facebook</a> |
-               {% endif %}
-
-              {% if page_user.twitter_url %}
-              <a href="{{ page_user.twitter_url }}">Twitter</a> |
-              {% endif %}
-
-              {% if page_user.instagram_url %}
-              <a href="{{ page_user.instagram_url }}">Instagram</a>
-              {% endif %}
-          </p>
-
-        <p class="card-text">
-            {{ page_user.bio }}
-        </p>
-
-      </div>
-    </div>
-  </div>
-</div>
 
 {% endblock content %}

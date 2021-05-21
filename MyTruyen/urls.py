@@ -15,8 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
-from Controler.ForumView import ForumView, ArticleDetailView, AddPostView
 from Controler.ProfileView import ShowProfilePageView, EditProfilePageView
 
 import Controler.AuthView
@@ -27,6 +25,10 @@ from Controler.ChapView import ChapView
 
 from django.conf.urls.static import static
 from django.conf import settings
+
+from Controler.MemberView import UserEditView
+from Controler.MemberView import PasswordsChangeView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home, name='Home Page'),
@@ -38,10 +40,8 @@ urlpatterns = [
 
     path('edit_profile_page/<int:pk>', EditProfilePageView.as_view(), name="edit_profile_page"),
     path('profile/<int:pk>', ShowProfilePageView.as_view(), name="show_profile_page"),
-    path('add_post/', AddPostView.as_view(), name='add_post'),
-    path('article/<int:pk>', ArticleDetailView.as_view(), name='article-detail'),
-    path('forum/', ForumView.as_view(), name="forum"),
-    path('members/', include('members.urls')),
+    path('edit_account/', UserEditView.as_view(), name='edit_account'),
+    path('password/', PasswordsChangeView.as_view(template_name='registration/change-password.html'), name="password"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
