@@ -5,7 +5,7 @@ from django.views.generic import ListView, DetailView
 from django.views import generic
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
-from Data.Form.profileForm import *
+from Data.Form.accountForm import *
 from django.contrib.auth.views import PasswordChangeView
 
 

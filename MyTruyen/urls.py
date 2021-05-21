@@ -42,6 +42,4 @@ urlpatterns = [
     path('profile/<int:pk>', ShowProfilePageView.as_view(), name="show_profile_page"),
     path('edit_account/', UserEditView.as_view(), name='edit_account'),
     path('password/', PasswordsChangeView.as_view(template_name='registration/change-password.html'), name="password"),
-]
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
