@@ -4,6 +4,8 @@
    ```python -m pip install Django```
 ### 2 . load virtualenv 
   ``` pip install -r requirements.txt```
+### 3 . install admin interface
+  ``` pip install django-admin-interface```
 ### 3. make migration
   ``` python manage.py makemigrations```
 ### 4 . load migation
