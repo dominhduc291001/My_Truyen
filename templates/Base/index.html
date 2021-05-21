@@ -55,6 +55,13 @@
                         <li><a class="dropdown-item" href="#">Đô thị</a></li>
                     </ul>
                 </li>
+                <span class="space-example"></span>
+                <li class="nav-item my-item-home">
+                    <a class="nav-link" href="{% url 'forum' %}">
+                <i class="fas fa-home"></i>
+                        Forum
+                    </a>
+                </li>
             </ul>
             <form class="d-flex">
                 <a class="btn btn-outline-success" href="/search">Lọc truyện</a>
@@ -67,7 +74,14 @@
                         {{ request.user }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownUser">
-                            <a class="dropdown-item"  href="/user">Tài khoản</a>
+                             <a class="dropdown-item"  href="{% url 'show_profile_page' user.profile.id %}">Tài khoản</a>
+                            {% if user.profile.id %}
+                                <a class="dropdown-item"  href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile Page</a>
+                            {% else %}
+                                <a class="dropdown-item"  href="#">Create Profile Page</a>
+                            {% endif %}
+                            <a class="dropdown-item"  href="{% url 'edit_profile' %}">Edit Acount</a>
+                            <a class="dropdown-item"  href="{% url 'password' %}">Edit Password</a>
                             <a class="dropdown-item" href="/logout">Đăng xuất</a>
                         </div>
                     </div>

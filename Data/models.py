@@ -1,6 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class Truyen(models.Model):
     IDtruyen = models.CharField(max_length = 30, primary_key = True)
@@ -43,4 +44,33 @@ class Checktheloai(models.Model):
 class Theodoi(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     IDtruyen = models.ForeignKey(Truyen, on_delete=models.CASCADE)
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    bio = models.TextField()
+    profile_pic = models.ImageField(null=True, blank=True)
+    website_url = models.CharField(max_length=255, null=True, blank=True)
+    facebook_url = models.CharField(max_length=255, null=True, blank=True)
+    twitter_url = models.CharField(max_length=255, null=True, blank=True)
+    instagram_url = models.CharField(max_length=255, null=True, blank=True)
+
+
+    def __str__(self):
+        return str(self.user)
+
+
+class Post(models.Model):
+    title = models.CharField(max_length=255)
+    #title_tag = models.CharField(max_length=255, default="MY REVIEW")
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    body = models.TextField()
+
+    def __str__(self):
+        return self.title + ' | ' + str(self.author)
+
+    def get_absolute_url(self):
+        return reverse('forum')
+
+
 

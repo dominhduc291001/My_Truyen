@@ -1,0 +1,14 @@
+{% extends 'Base/index.html' %}
+{% load static %}
+{% block content %}
+<h1>Add Review</h1>
+<br/>
+<div class="d-flex justify-content-center form_container">
+<div class="form-group">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">Post</button>
+</div>
+</div>
+{% endblock content %}
