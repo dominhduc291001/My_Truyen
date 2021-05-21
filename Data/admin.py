@@ -3,7 +3,6 @@ from django.contrib.admin import ModelAdmin
 from .models import *
 # Register your models here.
 
-#myModels = [Truyen,Theloai, Checktheloai,Chaptruyen]
 class TruyenAdmin (ModelAdmin):
 
     ordeing=['IDtruyen']
@@ -28,7 +27,5 @@ class CheckTheLoaiAdmin (ModelAdmin) :
     ordeing = ['IDtheloai']
     list_editable=['IDtruyen']
     list_display=['IDtheloai','IDtruyen']
-admin.site.register(Theloai,TheLoaiAdmin)
-admin.site.register(Checktheloai,CheckTheLoaiAdmin)
-admin.site.register(Chaptruyen,ChapTruyenAdmin)
-admin.site.register(Truyen,TruyenAdmin)
+myModels = [Truyen,Theloai, Checktheloai,Chaptruyen,TheLoaiAdmin,CheckTheLoaiAdmin,ChapTruyenAdmin,TruyenAdmin]
+admin.site.register(myModels)
