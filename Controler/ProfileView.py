@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
 from Data.models import Profile
-from Data.models import Post
 from django.views.generic import ListView, DetailView
 from django.views import generic
 from django.urls import reverse_lazy
