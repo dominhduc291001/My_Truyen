@@ -1,0 +1,21 @@
+{% extends 'Base/index.html' %}
+{% load static %}
+{% block content %}
+<br>
+<div class="container">
+    <div class="row row-title" style="height: 80vh;">
+        <div class="view-list" style="margin-left: 6%">
+            {% for item in listTheLoai %}
+                <div class="mycard text-center">
+                    <a href="/SelectTruyen/{{ item.IDtruyen }}">
+                        <img class="img-thumbnail zoom " style="height: 200px" src="{% static item.anh %}">
+                    </a>
+                    <a href="/SelectTruyen/{{ item.IDtruyen }}" class="mylink"><p
+                            class="my-context">{{ item.tentruyen }}</p></a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<br>
+{% endblock %}

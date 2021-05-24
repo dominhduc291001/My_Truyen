@@ -22,7 +22,7 @@ from Controler.HomeView import home
 
 from Controler.SelectTruyen import SelectTruyen
 from Controler.ChapView import ChapView
-
+from Controler.TheLoai import TheLoai
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -36,6 +36,7 @@ urlpatterns = [
     path('logout/', Controler.AuthView.logoutUser, name='logout'),
     path('login/', Controler.AuthView.loginPage, name='login'),
     path('SelectTruyen/<str:id>/',SelectTruyen,name='SelectTruyen'),
+    path('TheLoai/<str:id>/',TheLoai,name='TheLoai'),
     path('chap/<str:idTruyen>/<int:id>/',ChapView,name='ChapView'),
 
     path('edit_profile_page/<int:pk>', EditProfilePageView.as_view(), name="edit_profile_page"),
